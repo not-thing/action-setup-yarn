@@ -4,7 +4,11 @@ description: 'setup yarn and cache and install packages'
 runs:
   using: composite
   steps:
+  - uses: actions/checkout@v3
+    with:
+      submodules: recursive
   - uses: actions/setup-node@v3
     with:
-      node-version: 18
+      node-version: 18.15
+      registry-url: https://npm.pkg.github.com/
       cache: "yarn"
